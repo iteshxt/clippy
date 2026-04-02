@@ -2,7 +2,7 @@
 
 **Clippy** is a high-fidelity, nature-inspired online clipboard service. It's built for speed, privacy, and aesthetic delight. Share text, images, gifs, links, and files instantly using unique 4-digit codes—no accounts, no friction.
 
-![Clippy Preview](/public/lizard.png)
+![Clippy Preview](/frontend/public/lizard.png)
 
 ## ✨ Features
 
