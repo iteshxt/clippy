@@ -377,7 +377,7 @@ body {
 
 .tab-btn.active {
   background: var(--card-bg);
-  color: var(--text-900);
+  color: var(--green);
 }
 
 .tab-btn:not(.active):hover {
@@ -671,12 +671,15 @@ body {
 }
 
 .submit-btn:not(:disabled) {
-  background: #e8edea;
-  color: var(--text-900);
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(27,158,98,0.2);
 }
 
 .submit-btn:not(:disabled):hover {
-  background: #dde5e0;
+  background: #158b56;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(27,158,98,0.28);
 }
 
 .submit-btn svg { width: 17px; height: 17px; }
