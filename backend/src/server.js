@@ -18,13 +18,17 @@ const corsOrigins = CORS_ORIGIN.split(',').map(origin => origin.trim());
 // Middleware
 app.use(cors({ 
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    // 1. Allow for mobile/curl where no origin header is provided
     if (!origin) return callback(null, true);
     
-    // Check if origin is in allowed list
+    // 2. Allow everything if wildcard is specified (useful for public dev/prod)
+    if (CORS_ORIGIN === '*') return callback(null, true);
+
+    // 3. Normal whitelist check
     if (corsOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`[CORS Blocked] Origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
