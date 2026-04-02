@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: clippy-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: iteshxt
+      MONGO_INITDB_ROOT_PASSWORD: Itesh@2003
+      MONGO_INITDB_DATABASE: clippy
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+    networks:
+      - clippy_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: clippy-backend
+    environment:
+      MONGO_URI: mongodb://iteshxt:Itesh%402003@mongodb:27017/clippy?authSource=admin
+      BACKEND_PORT: 3001
+      CORS_ORIGIN: http://localhost:3000
+      NODE_ENV: production
+      MAX_FILE_SIZE_MB: 10
+      RATE_LIMIT_WINDOW_MS: 3600000
+      RATE_LIMIT_MAX_REQUESTS: 50
+      PASTE_DEFAULT_EXPIRY_MINUTES: 60
+      PASTE_MAX_EXPIRY_MINUTES: 1440
+    ports:
+      - "3001:3001"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - clippy_network
+    healthcheck:
+      # Handled by Dockerfile, but explicitly defined here for orchestration
+      test: wget --no-verbose --tries=1 --spider http://localhost:3001/health || exit 1
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Use '/api' to trigger the Nginx reverse proxy
+        VITE_API_URL: /api
+    container_name: clippy-frontend
+    environment:
+      VITE_API_URL: /api
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - clippy_network
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:3000/index.html || exit 1
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+networks:
+  clippy_network:
+    driver: bridge
+
+volumes:
+  mongo_data:
+    driver: local
+  mongo_config:
+    driver: local

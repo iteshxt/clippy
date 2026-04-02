@@ -1,0 +1,43 @@
+.dist
+# Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Frontend (Vite/React)
+frontend/dist
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Backend
+backend/dist
+backend/.env
+backend/.env.local
+backend/uploads
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# IDE Specific
+.vscode
+.idea
+.fleet
+.sublime-project
+.sublime-workspace
+
+# Docker volumes
+mongo_data
+mongo_config
+
+# Project Specific
+.dist
+.gemini
+tmp/
+clippy-cli.exe
+clippy-cli
+clippy-cli-linux
+clippy-cli-macos
