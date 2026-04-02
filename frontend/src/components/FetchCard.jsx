@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// Use environment variable from Vite or fallback to local dev
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = API_BASE.endsWith('/') ? API_BASE.slice(0, -1) : API_BASE;
 
 /* ── Icons ──────────────────────────────────────────────── */
 const DownloadIcon = () => (
