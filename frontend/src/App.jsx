@@ -215,7 +215,7 @@ function Branding() {
             <div className="brand-row">
                 <Mascot />
                 <div className="brand-info">
-                    <h1 className="brand-name">Clippy</h1>
+                    <h1 className="brand-name">HiClippy</h1>
                     <div className="brand-meta">
                         <span className="beta-badge">BETA</span>
                         <span className="brand-tagline">Lightning fast Sharing</span>
