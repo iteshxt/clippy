@@ -329,10 +329,6 @@ export default function App() {
                     <RecentShare />
                 </motion.div>
 
-                <footer className="seo-footer">
-                    <p>HiClippy – The premium <strong>online clipboard</strong> & <strong>temp text sharing</strong> tool. Use <strong>clippy</strong> codes for instant, anonymous <strong>cross-device clipboard</strong> transfer.</p>
-                </footer>
-
             </div>
         </div>
     );
