@@ -31,10 +31,10 @@ const HashIcon = () => (
 );
 
 const features = [
-    { Icon: ZapIcon,  title: 'Instant Sharing',    desc: 'Copy, paste, share in seconds. No hassle.' },
-    { Icon: LockIcon, title: 'Auto-Expiring',       desc: 'Choose 1m to 10m. Content self-destructs.' },
-    { Icon: BoxIcon,  title: 'Everything Works',    desc: 'Text, images, links, files. Up to 10MB.' },
-    { Icon: HashIcon, title: 'Simple 4-Digit Codes', desc: 'No accounts, no logins. Just share the code.' },
+    { Icon: ZapIcon,  title: 'Online Clipboard',    desc: 'Instantly share text snippets between devices.' },
+    { Icon: LockIcon, title: 'Anonymous Sharing',    desc: 'No login required. Your content is truly private.' },
+    { Icon: BoxIcon,  title: 'Cross-Device Host',    desc: 'Drop files up to 10MB; retrieve them anywhere.' },
+    { Icon: HashIcon, title: '4-Digit Code',         desc: 'Just enter a simple code to fetch your clipboard.' },
 ];
 
 /* ── Nature SVG Background ──────────────────────────────── */
@@ -218,7 +218,7 @@ function Branding() {
                     <h1 className="brand-name">HiClippy</h1>
                     <div className="brand-meta">
                         <span className="beta-badge">BETA</span>
-                        <span className="brand-tagline">Lightning fast Sharing</span>
+                        <span className="brand-tagline">The Ultimate Online Clipboard</span>
                     </div>
                 </div>
             </div>
@@ -245,9 +245,9 @@ export default function App() {
                     animate="show"
                 >
                     <h2 className="hero-headline">
-                        Share anything<br />in seconds
+                        Your Ultimate<br />Online Clipboard
                     </h2>
-                    <p className="hero-sub">No accounts. No logins. No friction.</p>
+                    <p className="hero-sub">The fastest <strong>clippy online</strong> alternative for sharing snippets and files.</p>
                 </motion.div>
 
                 {/* ── Features ── */}
@@ -328,6 +328,10 @@ export default function App() {
                     {/* Recent Share floating pill */}
                     <RecentShare />
                 </motion.div>
+
+                <footer className="seo-footer">
+                    <p>HiClippy – The premium <strong>online clipboard</strong> & <strong>temp text sharing</strong> tool. Use <strong>clippy</strong> codes for instant, anonymous <strong>cross-device clipboard</strong> transfer.</p>
+                </footer>
 
             </div>
         </div>

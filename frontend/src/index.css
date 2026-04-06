@@ -1258,3 +1258,28 @@ body {
      gap: 10px;
   }
 }
+
+/* ─── SEO Footer ────────────────────────────────────────── */
+.seo-footer {
+  width: 100%;
+  max-width: 1120px;
+  margin: 40px auto 0;
+  padding: 20px 0;
+  border-top: 1.5px solid var(--border);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.seo-footer p {
+  font-size: 14px;
+  color: var(--text-400);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.seo-footer strong {
+  color: var(--text-600);
+  font-weight: 600;
+}

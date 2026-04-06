@@ -118,10 +118,10 @@ export function FetchCard() {
     };
 
     const typeInfo = {
-        text:  { Icon: TypeIcon,  label: 'Text'  },
+        text: { Icon: TypeIcon, label: 'Text' },
         image: { Icon: ImageIcon, label: 'Image' },
-        link:  { Icon: LinkIcon,  label: 'Link'  },
-        file:  { Icon: FileIcon,  label: paste?.fileName || 'File' },
+        link: { Icon: LinkIcon, label: 'Link' },
+        file: { Icon: FileIcon, label: paste?.fileName || 'File' },
     };
 
     return (
@@ -147,7 +147,7 @@ export function FetchCard() {
 
             {!paste && (
                 <form className="upload-form" onSubmit={handleFetch} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    
+
                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 28, position: 'relative', top: '-10px' }}>
                         <div style={{ width: '100%' }}>
                             <p className="fetch-label" style={{ marginBottom: 16, textAlign: 'center' }}>Enter 4-Digit Code</p>
@@ -177,7 +177,7 @@ export function FetchCard() {
                         {loading ? (
                             <><SpinIcon /> Retrieving...</>
                         ) : (
-                            <><DownloadIcon /> Retrieve Content</>
+                            <><DownloadIcon /> Retrieve Clipboard Content</>
                         )}
                     </motion.button>
 

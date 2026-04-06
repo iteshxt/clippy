@@ -415,9 +415,9 @@ export function UploadCard() {
                 style={{ marginTop: 'auto' }}
             >
                 {loading ? (
-                    <><SpinIcon /> Uploading...</>
+                    <><SpinIcon /> Sharing...</>
                 ) : (
-                    <><ShareIcon /> Share {contentType.charAt(0).toUpperCase() + contentType.slice(1)}</>
+                    <><ShareIcon /> Share to Clipboard</>
                 )}
             </motion.button>
         </form>
