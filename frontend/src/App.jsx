@@ -3,32 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { UploadCard } from './components/UploadCard';
 import { FetchCard } from './components/FetchCard';
 
-/* ── SVG Icons ──────────────────────────────────────────── */
-const ZapIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>
-);
-const LockIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="11" width="18" height="11" rx="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-);
-const BoxIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-        <line x1="12" y1="22.08" x2="12" y2="12" />
-    </svg>
-);
-const HashIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" y1="8" x2="12" y2="12" />
-        <line x1="12" y1="16" x2="12.01" y2="16" />
-    </svg>
-);
+import { 
+    Zap as ZapIcon, 
+    Lock as LockIcon, 
+    Box as BoxIcon, 
+    Hash as HashIcon,
+    Copy as _CopyIconSmall
+} from 'lucide-react';
 
 const features = [
     { Icon: ZapIcon,  title: 'Online Clipboard',    desc: 'Instantly share text snippets between devices.' },
@@ -336,10 +317,7 @@ export default function App() {
 
 /* ── RecentShare Component ───────────────────────────────── */
 const CopyIconSmall = () => (
-    <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-    </svg>
+    <_CopyIconSmall size={14} strokeWidth={2.2} />
 );
 
 function RecentShare() {
