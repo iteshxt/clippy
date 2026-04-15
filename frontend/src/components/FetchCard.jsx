@@ -63,6 +63,12 @@ const SpinIcon = () => (
         <path d="M21 12a9 9 0 1 1-6.219-8.56" />
     </svg>
 );
+const RefreshIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="1 4 1 10 7 10" />
+        <path d="M3.51 15a9 9 0 1 0 .49-3.95" />
+    </svg>
+);
 
 export function FetchCard() {
     const [pasteId, setPasteId] = useState('');
@@ -70,6 +76,13 @@ export function FetchCard() {
     const [paste, setPaste] = useState(null);
     const [error, setError] = useState(null);
     const [copied, setCopied] = useState(false);
+
+    const resetToInput = () => {
+        setPaste(null);
+        setError(null);
+        setPasteId('');
+        setCopied(false);
+    };
 
     const handleFetch = async (e) => {
         e.preventDefault();
@@ -231,6 +244,15 @@ export function FetchCard() {
                                     <CopyIcon />
                                     {copied ? 'Copied!' : 'Copy Text'}
                                 </motion.button>
+                                <motion.button
+                                    className="reset-btn"
+                                    onClick={resetToInput}
+                                    whileTap={{ scale: 0.98 }}
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
+                                >
+                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    Retrieve Another
+                                </motion.button>
                             </>
                         )}
 
@@ -260,6 +282,15 @@ export function FetchCard() {
                                 <motion.button className="copy-btn" onClick={copyToClipboard} whileTap={{ scale: 0.97 }} style={{ flexShrink: 0, marginTop: 'auto' }}>
                                     <CopyIcon /> {copied ? 'Copied!' : 'Copy Link'}
                                 </motion.button>
+                                <motion.button
+                                    className="reset-btn"
+                                    onClick={resetToInput}
+                                    whileTap={{ scale: 0.98 }}
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
+                                >
+                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    Retrieve Another
+                                </motion.button>
                             </>
                         )}
 
@@ -277,6 +308,15 @@ export function FetchCard() {
                                 )}
                                 <motion.button className="copy-btn" onClick={downloadFile} whileTap={{ scale: 0.97 }} style={{ flexShrink: 0, marginTop: 'auto' }}>
                                     <DownloadIcon /> Download File
+                                </motion.button>
+                                <motion.button
+                                    className="reset-btn"
+                                    onClick={resetToInput}
+                                    whileTap={{ scale: 0.98 }}
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
+                                >
+                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    Retrieve Another
                                 </motion.button>
                             </>
                         )}
