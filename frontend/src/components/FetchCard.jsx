@@ -202,7 +202,7 @@ export function FetchCard() {
                                     whileTap={{ scale: 0.98 }}
                                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
                                 >
-                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    <RefreshIcon size={16} />
                                     Retrieve Another
                                 </motion.button>
                             </>
@@ -227,7 +227,7 @@ export function FetchCard() {
                         {paste.contentType === 'link' && (
                             <>
                                 <div className="content-display">
-                                    <a href={paste.content} target="_blank" rel="noopener noreferrer" className="content-link">
+                                    <a href={paste.content.match(/^https?:\/\//i) ? paste.content : `https://${paste.content}`} target="_blank" rel="noopener noreferrer" className="content-link">
                                         {paste.content}
                                     </a>
                                 </div>
@@ -240,7 +240,7 @@ export function FetchCard() {
                                     whileTap={{ scale: 0.98 }}
                                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
                                 >
-                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    <RefreshIcon size={16} />
                                     Retrieve Another
                                 </motion.button>
                             </>
@@ -267,7 +267,7 @@ export function FetchCard() {
                                     whileTap={{ scale: 0.98 }}
                                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7 }}
                                 >
-                                    <span style={{ width: 14, height: 14, display: 'flex' }}><RefreshIcon /></span>
+                                    <RefreshIcon size={16} />
                                     Retrieve Another
                                 </motion.button>
                             </>
