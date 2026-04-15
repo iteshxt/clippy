@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ USER node
 COPY --chown=node:node package*.json ./
 
 # Install dependencies (runtime only)
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 # Copy source code
 COPY --chown=node:node ./src ./src
