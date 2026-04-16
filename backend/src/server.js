@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import app from './app.js';
+import { startCronJobs } from './cron/cleanup.js';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ mongoose.connect(MONGO_URI, {
 })
   .then(() => {
     console.log('✓ MongoDB connected successfully');
+    startCronJobs(); // start the cleanup cron right after database connection
     app.listen(PORT, () => {
       console.log(`🚀 Backend server running on port ${PORT}`);
     });
